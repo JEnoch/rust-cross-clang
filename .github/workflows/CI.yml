@@ -35,6 +35,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
-          push: false
+          push: true
           file: ${{ matrix.image.file }}
           tags: jenoch/rust-cross:${{ matrix.image.arch }}
