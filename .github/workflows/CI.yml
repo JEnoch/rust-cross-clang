@@ -17,7 +17,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
 
   builds:
-    name: Build for ${{ matrix.job.target }} on ${{ matrix.job.os }}
+    name: Build jenoch/rust-cross:${{ matrix.image.arch }}
     needs: prepare
     runs-on: ubuntu-latest
     strategy:
