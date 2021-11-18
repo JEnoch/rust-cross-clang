@@ -1,0 +1,13 @@
+FROM rustembedded/cross:armv7-unknown-linux-gnueabihf-0.2.1
+
+RUN dpkg --add-architecture arm && \
+    apt-get update && \
+    apt-get install -y apt-transport-https wget gnupg2 && \
+    (wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -) && \
+    printf "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-12 main\ndeb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-12 main" > /etc/apt/sources.list.d/backports.list && \
+    apt-get update && \
+    apt-get install -y llvm-12-dev libclang-12-dev clang-12 libc++-12-dev && \
+    apt-get purge -y apt-transport-https wget
+
+ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/arm-linux-gnueabihf"
+ENV RUST_LOG=bindgen
