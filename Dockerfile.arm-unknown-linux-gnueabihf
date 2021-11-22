@@ -9,5 +9,5 @@ RUN dpkg --add-architecture arm && \
     apt-get install -y llvm-12-dev libclang-12-dev clang-12 libc++-12-dev && \
     apt-get purge -y apt-transport-https wget
 
-ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/arm-linux-gnueabihf -I/usr/arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/assert.h"
+ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/arm-linux-gnueabihf -I/usr/arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include"
 ENV RUST_LOG=bindgen
