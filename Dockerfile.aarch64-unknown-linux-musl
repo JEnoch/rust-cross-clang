@@ -8,5 +8,5 @@ RUN apt-get update && \
     apt-get install -y llvm-12-dev libclang-12-dev clang-12 libc++-12-dev && \
     apt-get purge -y apt-transport-https wget
 
+ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/local/aarch64-linux-musl"
 ENV RUST_LOG=bindgen
-ENV RUSTFLAGS="-C linker=aarch64-linux-musl-gcc"
