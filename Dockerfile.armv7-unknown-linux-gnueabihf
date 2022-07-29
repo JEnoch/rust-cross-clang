@@ -1,4 +1,4 @@
-FROM rustembedded/cross:armv7-unknown-linux-gnueabihf-0.2.1
+FROM ghcr.io/cross-rs/armv7-unknown-linux-gnueabihf:0.2.4
 
 RUN dpkg --add-architecture arm && \
     apt-get update && \
@@ -9,5 +9,4 @@ RUN dpkg --add-architecture arm && \
     apt-get install -y llvm-12-dev libclang-12-dev clang-12 libc++-12-dev && \
     apt-get purge -y apt-transport-https wget
 
-ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/arm-linux-gnueabihf"
 ENV RUST_LOG=bindgen

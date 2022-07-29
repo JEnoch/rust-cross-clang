@@ -1,4 +1,4 @@
-FROM rustembedded/cross:aarch64-unknown-linux-musl-0.2.1
+FROM ghcr.io/cross-rs/aarch64-unknown-linux-musl:0.2.4
 
 RUN apt-get update && \
     apt-get install -y apt-transport-https wget gnupg2 && \
@@ -8,5 +8,4 @@ RUN apt-get update && \
     apt-get install -y llvm-12-dev libclang-12-dev clang-12 libc++-12-dev && \
     apt-get purge -y apt-transport-https wget
 
-ENV BINDGEN_EXTRA_CLANG_ARGS="--sysroot=/usr/local/aarch64-linux-musl"
 ENV RUST_LOG=bindgen
