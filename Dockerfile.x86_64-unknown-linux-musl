@@ -1,4 +1,5 @@
-FROM ghcr.io/cross-rs/x86_64-unknown-linux-musl:0.2.4
+# from "edge" tag on 2022/12/09
+FROM ghcr.io/cross-rs/x86_64-unknown-linux-musl@sha256:5e14da588c9e3c4d9062e1bd89697f544ab1f9382ce4825f28655bfdb42c8f81
 
 RUN apt-get update && \
     apt-get install -y apt-transport-https wget gnupg2 && \

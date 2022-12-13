@@ -1,4 +1,5 @@
-FROM ghcr.io/cross-rs/arm-unknown-linux-gnueabihf:0.2.4
+# from "edge" tag on 2022/12/09
+FROM ghcr.io/cross-rs/arm-unknown-linux-gnueabihf@sha256:3d97a329a35754eeda10b7a737d12f8a12e84b1bf7c1d01bacb8620509dce1ba
 
 RUN dpkg --add-architecture arm && \
     apt-get update && \

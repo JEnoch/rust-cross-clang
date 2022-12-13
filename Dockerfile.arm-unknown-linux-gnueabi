@@ -1,8 +1,9 @@
-FROM ghcr.io/cross-rs/arm-unknown-linux-gnueabi:0.2.4
+# from "edge" tag on 2022/12/09
+FROM ghcr.io/cross-rs/arm-unknown-linux-gnueabi@sha256:6b433802d80ee9e63356934bcc59c5f874fcd1d0d24d2a9c6d2dcc5fff57759e
 
 RUN dpkg --add-architecture arm && \
     apt-get update && \
-    apt-get install -y apt-transport-https wget && \
+    apt-get install -y apt-transport-https wget gnupg2 && \
     (wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -) && \
     printf "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-12 main\ndeb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-12 main" > /etc/apt/sources.list.d/backports.list && \
     apt-get update && \
